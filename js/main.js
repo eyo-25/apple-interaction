@@ -12,6 +12,14 @@
             scrollHeight: 0,
             objs: {
                 container: document.querySelector('#scroll-section-0'),
+                messageA: document.querySelector('#scroll-section-0 .main-message.a'),
+                messageB: document.querySelector('#scroll-section-0 .main-message.b'),
+                messageC: document.querySelector('#scroll-section-0 .main-message.c'),
+                messageD: document.querySelector('#scroll-section-0 .main-message.d'),
+            },
+            values: {
+                messageA_opacity: [0, 1],
+
             }
         },
         {
@@ -42,6 +50,42 @@
             }
         },
     ];
+
+    function calcValues(values, currentYOffset) {
+        let rv;
+        //현재 씬에서 스크롤된 만큼을 비율로 구하기
+        let scrollRatio = currentYOffset / sceneInfo[currentScene].scrollHeight;
+        //(values[1] - values[0]) = 총 범위 에초기값을 더해주어 scrollRatio(0-1까지의 씬에서의 비율)을 곱한다.
+        rv = scrollRatio * (values[1] - values[0]) + values[0]
+        
+        return rv;
+    }
+
+    function playAnimaction() {
+        const objs = sceneInfo[currentScene].objs
+        const values = sceneInfo[currentScene].values
+        const currentYOffset = yOffset - prevScrollHeight
+        switch (currentScene){
+            case 0:
+                // console.log('0 play')
+                let messageA_opacity_in = calcValues(values.messageA_opacity, currentYOffset);
+                objs.messageA.style.opacity = messageA_opacity_in;
+                break;
+
+            case 1:
+                // console.log('1 play')
+                break;
+
+            case 2:
+                // console.log('2 play')
+                break;
+                
+            case 3:
+                // console.log('3 play')
+                break;
+                
+        }
+    }
 
     function setLayout() {
         // 각 스크롤 섹션의 높이 세팅
@@ -78,6 +122,8 @@
             currentScene --;
             document.body.setAttribute('id', `show-scene-${currentScene}`)
         }
+
+        playAnimaction()
     }
 
     window.addEventListener('scroll', ()=>{
