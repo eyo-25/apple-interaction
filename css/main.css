@@ -28,6 +28,7 @@ a {
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 10;
 }
 
 .local-nav {
@@ -38,6 +39,7 @@ a {
     top: 45px;
     left: 0;
     width: 100%;
+    z-index: 11;
 }
 
 .gloval-nav-links, .local-nav-links {
@@ -84,6 +86,7 @@ a {
     height: 3em;
     font-size: 2.5rem;
     opacity: 0;
+    top: 35vh;
     /* 1rem = 14px(제일 가까운 곳의 폰트크기) */
     /* rem으로 폰트기준잡고 height의 3em으로 2.5*3=7.5px의 높이를 구할 수 있다. */
 }
@@ -130,6 +133,16 @@ a {
     background: rgb(29, 29, 31);
 }
 
+#scroll-section-2 .b {
+    top: 10%;
+    left: 40%;
+}
+
+#scroll-section-2 .c {
+    top: 15%;
+    left: 45%;
+}
+
 .mid-message {
     padding: 0 1rem;
     font-size: 2rem;
@@ -162,7 +175,6 @@ a {
 .sticky-elem {
     display: none;
     position: fixed;
-    top: 0;
     left: 0;
     width: 100%;
 }
@@ -172,6 +184,11 @@ a {
 #show-scene-2 #scroll-section-2 .sticky-elem,
 #show-scene-3 #scroll-section-3 .sticky-elem {
     display: block;
+}
+
+.sticky-elem-canvas {
+    top: 0;
+    background: #e5e5e5;
 }
 
 
@@ -185,7 +202,7 @@ a {
     .description {
         margin: 0 auto;
     }
-    .description sssssstrong{
+    .description strong{
         font-size: 6rem;
     }
     #scroll-section-2 .main-message {
@@ -194,6 +211,16 @@ a {
     .main-message small {
         font-style: 1.5vw;
     }
+
+    #scroll-section-2 .b {
+        top: 20%;
+        left: 53%;
+    }
+    
+    #scroll-section-2 .c {
+        left: 55%;
+    }
+
     .desc-message {
         width: 20%;
         font-weight: bold;
